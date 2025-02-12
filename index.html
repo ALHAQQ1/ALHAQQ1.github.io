@@ -3,313 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Counts-Prom Giveaway</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        header {
-            text-align: center;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-        header img {
-            max-width: 300px;
-            height: auto;
-        }
-        .giveaway-boxes {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        .box {
-            width: 250px;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            text-align: center;
-            background-color: #f9f9f9;
-        }
-        .box h3 {
-            margin-top: 0;
-        }
-        .box p {
-            margin-bottom: 10px;
-        }
-        .box .price {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #e44d26;
-        }
-        .buy-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #5cb85c;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .buy-button:hover {
-            background-color: #4cae4c;
-        }
-        .form-section {
-            margin-top: 30px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-        .form-section label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-section input[type="email"],
-        .form-section input[type="tel"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .ad-slot {
-            text-align: center;
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #eee;
-            border-radius: 8px;
-        }
-        .slideshow-container {
-            max-width: 500px;
-            position: relative;
-            margin: auto;
-        }
-
-        .slideshow-container img {
-            width: 100%;
-            display: none;
-        }
-
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
-
-        @keyframes fade {
-            from {opacity: .4}
-            to {opacity: 1}
-        }
-
-        .gift-box-option {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .box img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-    </style>
+    <title>Al-Hagg Investment</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <h1>Welcome to Al-Hagg Investment</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="container">
-        <header>
-            <img src="https://i.imgur.com/a3Kx8gV.png" alt="Counts-Prom Giveaway Logo">
-            <h1>Counts-Prom Giveaway</h1>
-            <p>Enter our amazing giveaway for a chance to win fantastic prizes!</p>
-        </header>
+    <section id="home">
+        <h2>Investment Opportunities</h2>
+        <p>Discover the best investment opportunities with Al-Hagg.</p>
+    </section>
 
-        <div class="giveaway-boxes">
-            <div class="box">
-                <h3>Bronze Box</h3>
-                <img src="https://i.imgur.com/q2yY5c2.png" alt="Counts Kustoms Lighter">
-                <p>Win a Counts Kustoms Zippo Lighter!</p>
-                <p class="price">$9.99</p>
-                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                    <input type="hidden" name="box_type" value="bronze">
-                    <input type="hidden" name="email" id="bronze_email" value="">
-                    <input type="hidden" name="phone" id="bronze_phone" value="">
-                    <button type="submit" class="buy-button">Buy Now</button>
-                </form>
-            </div>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Al-Hagg Investment is dedicated to providing top-notch investment services.</p>
+    </section>
 
-            <div class="box">
-                <h3>Silver Box</h3>
-                <img src="https://i.imgur.com/R3b9mXv.png" alt="Counts Kustoms Shirt">
-                <p>Win a Counts Kustoms T-Shirt!</p>
-                <p class="price">$24.99</p>
-                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                    <input type="hidden" name="box_type" value="silver">
-                    <input type="hidden" name="email" id="silver_email" value="">
-                    <input type="hidden" name="phone" id="silver_phone" value="">
-                    <button type="submit" class="buy-button">Buy Now</button>
-                </form>
-            </div>
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Portfolio Management</li>
+            <li>Financial Planning</li>
+            <li>Retirement Solutions</li>
+        </ul>
+    </section>
 
-            <div class="box">
-                <h3>Gold Box</h3>
-                <img src="https://i.imgur.com/f8l5mRz.png" alt="iPhone 16 Pro Max">
-                <p>Win a brand new iPhone 16 Pro Max!</p>
-                <p class="price">$49.99</p>
-                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                    <input type="hidden" name="box_type" value="gold">
-                    <input type="hidden" name="email" id="gold_email" value="">
-                    <input type="hidden" name="phone" id="gold_phone" value="">
-                    <button type="submit" class="buy-button">Buy Now</button>
-                </form>
-            </div>
-        </div>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form method="POST" action="submit_form.php">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
 
-        <div class="form-section">
-            <h2>Enter Your Details</h2>
-            <form id="paymentForm" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+    <footer>
+        <p>&copy; 2025 Al-Hagg Investment. All rights reserved.</p>
+    </footer>
 
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required>
-
-                <p>By submitting this form, you agree to our terms and conditions.</p>
-            </form>
-        </div>
-
-        <div class="ad-slot">
-            <h3>Advertisement</h3>
-            <p>Your ad here!</p>
-        </div>
-
-        <div class="slideshow-container">
-            <img src="[Image 1 URL]" class="mySlides fade" alt="Giveaway Prize 1">
-            <img src="[Image 2 URL]" class="mySlides fade" alt="Giveaway Prize 2">
-            <img src="[Image 3 URL]" class="mySlides fade" alt="Giveaway Prize 3">
-        </div>
-
-        <div class="ad-slot">
-            <h3>Another Advertisement</h3>
-            <p>More ads here!</p>
-        </div>
-
-        <div class="gift-box-option">
-            <h2>Want to Buy a Gift Box for Someone Else?</h2>
-            <p>Give the gift of winning!</p>
-            <a href="[Gift Box Options Page Link]" class="buy-button">Explore Gift Boxes</a>
-        </div>
-    </div>
-
-    <script>
-        let slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}
-            slides[slideIndex-1].style.display = "block";
-            setTimeout(showSlides, 3000);
-        }
-
-        // JavaScript to transfer data from the main form to the box forms
-        const mainEmail = document.getElementById('email');
-        const mainPhone = document.getElementById('phone');
-
-        mainEmail.addEventListener('input', updateBoxForms);
-        mainPhone.addEventListener('input', updateBoxForms);
-
-        function updateBoxForms() {
-            const emailValue = mainEmail.value;
-            const phoneValue = mainPhone.value;
-
-            document.getElementById('bronze_email').value = emailValue;
-            document.getElementById('silver_email').value = emailValue;
-            document.getElementById('gold_email').value = emailValue;
-
-            document.getElementById('bronze_phone').value = phoneValue;
-            document.getElementById('silver_phone').value = phoneValue;
-            document.getElementById('gold_phone').value = phoneValue;
-        }
-    </script>
-
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = isset($_POST["email"]) ? $_POST["email"] : "";
-    $phone = isset($_POST["phone"]) ? $_POST["phone"] : "";
-    $box_type = isset($_POST["box_type"]) ? $_POST["box_type"] : "";
-
-    // Data Validation
-    if (empty($email) || empty($phone)) {
-        echo "<p style='color:red;'>Email and phone are required before submitting the form!</p>";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<p style='color:red;'>Invalid email format.</p>";
-    } elseif (!preg_match('/^[0-9]{10}$/', $phone)) {
-        echo "<p style='color:red;'>Invalid phone number.  Please use a 10-digit format (e.g., 5551234567)</p>";
-    } else {
-        // Database Connection Details
-        $servername = "localhost";
-        $username = "your_username";
-        $password = "your_password";
-        $dbname = "your_database";
-
-        try {
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            // Prepare and Execute SQL
-            $sql = "INSERT INTO giveaway_entries (email, phone, box_type) VALUES (:email, :phone, :box_type)";
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':phone', $phone);
-            $stmt->bindParam(':box_type', $box_type);
-            $stmt->execute();
-
-            // Determine payment URL
-            switch ($box_type) {
-                case "bronze":
-                    $payment_url = "[Bronze Payment Page Link]";
-                    break;
-                case "silver":
-                    $payment_url = "[Silver Payment Page Link]";
-                    break;
-                case "gold":
-                    $payment_url = "[Gold Payment Page Link]";
-                    break;
-                default:
-                    echo "<p style='color:red;'>Invalid box type.</p>";
-                    $payment_url = "";  // Set to empty to prevent redirect if the box_type is invalid
-                    break;
-            }
-
-            // Redirect if $payment_url is not empty.
-            if (!empty($payment_url)) {
-                header("Location: " . $payment_url);
-                exit();
-            }
-
-        } catch (PDOException $e) {
-            echo "<p style='color:red;'>Database Error: " . $e->getMessage() . "</p>";
-        } finally {
-            $conn = null;
-        }
-    }
-}
-?>
-
+    <script src="scripts.js"></script>
 </body>
 </html>
