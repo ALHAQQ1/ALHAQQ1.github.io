@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Al-Hagg Investment</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
     <header>
@@ -15,83 +16,90 @@
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><button onclick="location.href='#signup'">Sign Up</button></li>
-                <li><button onclick="location.href='#login'">Login</button></li>
+                <li><button aria-label="Sign Up" onclick="location.href='#signup'">Sign Up</button></li>
+                <li><button aria-label="Login" onclick="location.href='#login'">Login</button></li>
                 <li><a href="#wallet">Wallet</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="home">
-        <h2>Investment Opportunities</h2>
-        <p>Discover the best investment opportunities with Al-Hagg.</p>
-    </section>
+    <main>
+        <section id="home">
+            <h2>Investment Opportunities</h2>
+            <p>Discover the best investment opportunities with Al-Hagg.</p>
+        </section>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Al-Hagg Investment is dedicated to providing top-notch investment services.</p>
-    </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Al-Hagg Investment is dedicated to providing top-notch investment services.</p>
+        </section>
 
-    <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li>Portfolio Management</li>
-            <li>Financial Planning</li>
-            <li>Retirement Solutions</li>
-        </ul>
-    </section>
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Portfolio Management</li>
+                <li>Financial Planning</li>
+                <li>Retirement Solutions</li>
+            </ul>
+        </section>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form method="POST" action="submit_form.php">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form method="POST" action="submit_form.php" novalidate>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required aria-required="true">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required aria-required="true">
+                <span class="error-message" id="emailError" style="color:red; display:none;"></span>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required aria-required="true"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
 
-    <section id="signup">
-        <h2>Sign Up</h2>
-        <form method="POST" action="signup.php">
-            <label for="signup_name">Name:</label>
-            <input type="text" id="signup_name" name="signup_name" required>
-            <label for="signup_email">Email:</label>
-            <input type="email" id="signup_email" name="signup_email" required>
-            <label for="signup_password">Password:</label>
-            <input type="password" id="signup_password" name="signup_password" required>
-            <button type="submit">Sign Up</button>
-        </form>
-    </section>
+        <section id="signup">
+            <h2>Sign Up</h2>
+            <form method="POST" action="signup.php" novalidate>
+                <label for="signup_name">Name:</label>
+                <input type="text" id="signup_name" name="signup_name" required aria-required="true">
+                <label for="signup_email">Email:</label>
+                <input type="email" id="signup_email" name="signup_email" required aria-required="true">
+                <label for="signup_password">Password:</label>
+                <input type="password" id="signup_password" name="signup_password" required aria-required="true">
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
 
-    <section id="login">
-        <h2>Login</h2>
-        <form method="POST" action="login.php">
-            <label for="login_email">Email:</label>
-            <input type="email" id="login_email" name="login_email" required>
-            <label for="login_password">Password:</label>
-            <input type="password" id="login_password" name="login_password" required>
-            <button type="submit">Login</button>
-        </form>
-    </section>
+        <section id="login">
+            <h2>Login</h2>
+            <form method="POST" action="login.php" novalidate>
+                <label for="login_email">Email:</label>
+                <input type="email" id="login_email" name="login_email" required aria-required="true">
+                <label for="login_password">Password:</label>
+                <input type="password" id="login_password" name="login_password" required aria-required="true">
+                <button type="submit">Login</button>
+            </form>
+        </section>
 
-    <section id="wallet">
-        <h2>Your Wallet</h2>
-        <p>Current Balance: $<span id="wallet_balance">0.00</span></p>
-        <form method="POST" action="wallet.php">
-            <label for="deposit_amount">Deposit Amount:</label>
-            <input type="number" id="deposit_amount" name="deposit_amount" required>
-            <button type="submit">Deposit</button>
-        </form>
-    </section>
+        <section id="wallet">
+            <h2>Your Wallet</h2>
+            <p>Current Balance: $<span id="wallet_balance">0.00</span></p>
+            <form method="POST" action="wallet.php" novalidate>
+                <label for="deposit_amount">Deposit Amount:</label>
+                <input type="number" id="deposit_amount" name="deposit_amount" required aria-required="true">
+                <button type="submit">Deposit</button>
+            </form>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2025 Al-Hagg Investment. All rights reserved.</p>
+        <nav>
+            <ul>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms of Service</a></li>
+            </ul>
+        </nav>
     </footer>
-
-    <script src="scripts.js"></script>
 </body>
 </html>
