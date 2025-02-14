@@ -14,7 +14,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact-form">Contact</a></li>
                 <li><button onclick="location.href='#signup'">Sign Up</button></li>
                 <li><button onclick="location.href='#login'">Login</button></li>
                 <li><a href="#wallet">Wallet</a></li>
@@ -41,9 +41,15 @@
         </ul>
     </section>
 
+    <!-- Updated Contact Us Section -->
     <section id="contact">
         <h2>Contact Us</h2>
-        <form method="POST" action="submit_form.php">
+        <p><a href="#contact-form">Click here to contact us</a></p>
+    </section>
+
+    <section id="contact-form">
+        <h2>Contact Form</h2>
+        <form method="POST" action="mailto:mglink@mail.com">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
