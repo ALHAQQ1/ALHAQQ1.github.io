@@ -1,103 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Hagg Investment</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome to Al-Hagg Investment</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact-form">Contact</a></li>
-                <li><button onclick="location.href='#signup'">Sign Up</button></li>
-                <li><button onclick="location.href='#login'">Login</button></li>
-                <li><a href="#wallet">Wallet</a></li>
-            </ul>
-        </nav>
-    </header>
+// In scripts.js
 
-    <section id="home">
-        <h2>Investment Opportunities</h2>
-        <p>Discover the best investment opportunities with Al-Hagg.</p>
-    </section>
+function calculateReturns() {
+    const amountInput = document.getElementById('investment_amount');
+    const rateInput = document.getElementById('interest_rate');
+    const yearsInput = document.getElementById('years');
+    const returnsOutput = document.getElementById('calculated_returns');
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Al-Hagg Investment is dedicated to providing top-notch investment services.</p>
-    </section>
+    const amount = parseFloat(amountInput.value);
+    const rate = parseFloat(rateInput.value) / 100;
+    const years = parseInt(yearsInput.value);
 
-    <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li>Portfolio Management</li>
-            <li>Financial Planning</li>
-            <li>Retirement Solutions</li>
-        </ul>
-    </section>
+    if (isNaN(amount) || amount <= 0) {
+        returnsOutput.innerText = "Please enter a valid positive investment amount.";
+        return;
+    }
 
-    <!-- Updated Contact Us Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p><a href="#contact-form">Click here to contact us</a></p>
-    </section>
+    if (isNaN(rate) || rate < 0) {
+        returnsOutput.innerText = "Please enter a valid positive interest rate.";
+        return;
+    }
 
-    <section id="contact-form">
-        <h2>Contact Form</h2>
-        <form method="POST" action="mailto:mglink@mail.com">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </section>
+    if (isNaN(years) || years <= 0) {
+        returnsOutput.innerText = "Please enter a valid number of years.";
+        return;
+    }
 
-    <section id="signup">
-        <h2>Sign Up</h2>
-        <form method="POST" action="signup.php">
-            <label for="signup_name">Name:</label>
-            <input type="text" id="signup_name" name="signup_name" required>
-            <label for="signup_email">Email:</label>
-            <input type="email" id="signup_email" name="signup_email" required>
-            <label for="signup_password">Password:</label>
-            <input type="password" id="signup_password" name="signup_password" required>
-            <button type="submit">Sign Up</button>
-        </form>
-    </section>
+    const returns = amount * Math.pow((1 + rate), years);
+    returnsOutput.innerText = `After ${years} years, your investment of $${amount.toFixed(2)} will be worth approximately $${returns.toFixed(2)}.`;
+}
 
-    <section id="login">
-        <h2>Login</h2>
-        <form method="POST" action="login.php">
-            <label for="login_email">Email:</label>
-            <input type="email" id="login_email" name="login_email" required>
-            <label for="login_password">Password:</label>
-            <input type="password" id="login_password" name="login_password" required>
-            <button type="submit">Login</button>
-        </form>
-    </section>
+function showSuggestions(inputValue) {
+    const suggestionsDiv = document.getElementById("suggestions");
+    suggestionsDiv.innerHTML = ""; // Clear previous suggestions
 
-    <section id="wallet">
-        <h2>Your Wallet</h2>
-        <p>Current Balance: $<span id="wallet_balance">0.00</span></p>
-        <form method="POST" action="wallet.php">
-            <label for="deposit_amount">Deposit Amount:</label>
-            <input type="number" id="deposit_amount" name="deposit_amount" required>
-            <button type="submit">Deposit</button>
-        </form>
-    </section>
+    // Example Data (replace with API or database call)
+    const names = ["John Doe", "Jane Smith", "Peter Jones", "Alice Brown"];
+    const filteredNames = names.filter(name => name.toLowerCase().startsWith(inputValue.toLowerCase()));
 
-    <footer>
-        <p>&copy; 2025 Al-Hagg Investment. All rights reserved.</p>
-    </footer>
+    if (inputValue && filteredNames.length > 0) {
+        filteredNames.forEach(name => {
+            const suggestion = document.createElement("p");
+            suggestion.textContent = name;
+            suggestion.addEventListener("click", () => {
+                document.getElementById("name").value = name;
+                suggestionsDiv.innerHTML = ""; // Clear suggestions after selection
+            });
+            suggestionsDiv.appendChild(suggestion);
+        });
+    }
+}
 
-    <script src="scripts.js"></script>
-</body>
-</html>
+// Optional: AJAX for Contact Form Submission
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form').querySelector('form'); // Added .querySelector('form')
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(contactForm);
+
+            fetch('process_contact.php', {  // Replace with your actual PHP script
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                // Handle success (e.g., display a success message)
+                document.getElementById('contact-success-message').style.display = 'block';
+                contactForm.reset(); // Clear the form
+            })
+            .catch(error => {
+                // Handle error (e.g., display an error message)
+                console.error('There was a problem with the fetch operation:', error);
+                alert('There was an error submitting the form. Please try again.'); // Simple alert for now
+            });
+        });
+    }
+});
