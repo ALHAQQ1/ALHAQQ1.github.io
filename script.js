@@ -1,61 +1,34 @@
-// In scripts.js
-/**
- * Calculates the estimated investment returns based on user input.
- */
+// Function to calculate investment returns
 function calculateReturns() {
     const amountInput = document.getElementById('investment_amount');
     const rateInput = document.getElementById('interest_rate');
     const yearsInput = document.getElementById('years');
     const returnsOutput = document.getElementById('calculated_returns');
 
-    // Get values and parse them as numbers
-    let amount = parseFloat(amountInput.value);
-    let rate = parseFloat(rateInput.value) / 100;
-    let years = parseInt(yearsInput.value);
+    const amount = parseFloat(amountInput.value);
+    const rate = parseFloat(rateInput.value) / 100;
+    const years = parseInt(yearsInput.value);
 
     // Input validation
-    let isValid = true; // Flag to track overall validation status
-
     if (isNaN(amount) || amount <= 0) {
         returnsOutput.innerText = "Please enter a valid positive investment amount.";
-        amountInput.classList.add('error'); // Highlight the input field
-        isValid = false;
-    } else {
-        amountInput.classList.remove('error'); // Remove highlight if valid
+        return;
     }
-
     if (isNaN(rate) || rate < 0) {
         returnsOutput.innerText = "Please enter a valid positive interest rate.";
-        rateInput.classList.add('error');
-        isValid = false;
-    } else {
-        rateInput.classList.remove('error');
+        return;
     }
-
     if (isNaN(years) || years <= 0) {
         returnsOutput.innerText = "Please enter a valid number of years.";
-        yearsInput.classList.add('error');
-        isValid = false;
-    } else {
-        yearsInput.classList.remove('error');
+        return;
     }
 
-    if (!isValid) {
-        return; // Stop calculation if any input is invalid
-    }
-
-    // Calculation
+    // Calculate returns
     const returns = amount * Math.pow((1 + rate), years);
-
-    // Display the result
     returnsOutput.innerText = `After ${years} years, your investment of $${amount.toFixed(2)} will be worth approximately $${returns.toFixed(2)}.`;
 }
 
-/**
- * Displays name suggestions based on user input in the contact form.
- *
- * @param {string} inputValue - The current value of the name input field.
- */
+// Function to show suggestions based on user input
 function showSuggestions(inputValue) {
     const suggestionsDiv = document.getElementById("suggestions");
     suggestionsDiv.innerHTML = ""; // Clear previous suggestions
@@ -77,18 +50,14 @@ function showSuggestions(inputValue) {
     }
 }
 
-/**
- * Handles the submission of the contact form using AJAX.
- */
+// Optional: AJAX for Contact Form Submission
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form').querySelector('form'); // Added .querySelector('form')
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
-
             const formData = new FormData(contactForm);
-
-            fetch('process_contact.php', {  // Replace with your actual PHP script
+            fetch('process_contact.php', { // Replace with your actual PHP script
                 method: 'POST',
                 body: formData
             })
